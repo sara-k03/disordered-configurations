@@ -8,10 +8,10 @@
     "version": "1.0.0",
     "attributes": {
       "metadata": {
-        "title": "Search | Globus Search Portal"
+        "title": "Disordered Configurations Search Portal"
       },
       "content": {
-        "headline": "Globus Search Portal"
+        "headline": "Searchable database for the disordered network configurations created for the DMREF project"
       },
       "features": {
         "transfer": false
@@ -33,7 +33,7 @@
       },
       "globus": {
         "search": {
-          "index": "78b92aca-e361-4307-8f66-bc448f20e2c3",
+          "index": "c143ddca-ef0c-400e-82f7-741345c7e5a8",
           "facets": [
             {
               "name": "Tags",
