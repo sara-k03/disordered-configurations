@@ -1,6 +1,7 @@
 import globus_sdk
 from globus_sdk import ConfidentialAppAuthClient, ClientCredentialsAuthorizer
 import argparse
+import json
 
 # COMMAND TO RUN: python3 set_up_index.py -c .secrets/globus_search_index
 
@@ -62,35 +63,40 @@ if __name__=="__main__":
 
     # Ingest new data into the index
     # ingest_data - assign to a json file that includes a file
-    ingest_data = {
-        "ingest_type": "GMetaList",
-        "ingest_data": {
-            "gmeta": [
-                {
-                    "subject": "Subject1",
-                    "visible_to": ["public"],
-                    "content": {
-                        "name": "Subject 1",
-                        "tags": [
-                            "1"
-                        ],
-                        "group": "group1" 
-                        }
-                },
-                {
-                    "subject": "Subject2",
-                    "visible_to": ["public"],
-                    "content": {
-                        "name": "Subject 2",
-                        "tags": [
-                            "2"
-                        ],
-                        "group": "group2" 
-                        }
-                },
 
-            ]
-        },
-    }
+    with open("ingest_data.json") as f:
+        ingest_data = json.load(f)
+
+    # ingest_data = {
+    #     "ingest_type": "GMetaList",
+    #     "ingest_data": {
+    #         "gmeta": [
+    #             {
+    #                 "subject": "Subject1",
+    #                 "visible_to": ["public"],
+    #                 "content": {
+    #                     "name": "Subject 1",
+    #                     "tags": [
+    #                         "1"
+    #                     ],
+    #                     "group": "group1" 
+    #                     }
+    #             },
+    #             {
+    #                 "subject": "Subject2",
+    #                 "visible_to": ["public"],
+    #                 "content": {
+    #                     "name": "Subject 2",
+    #                     "tags": [
+    #                         "2"
+    #                     ],
+    #                     "group": "group2" 
+    #                     }
+    #             },
+
+    #         ]
+    #     },
+    # }
+    
     # injest data
     sc.ingest(index_id, ingest_data)
